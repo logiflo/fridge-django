@@ -1,0 +1,40 @@
+{% extends "my_fridge/base.html" %}
+{% load bootstrap4 %}
+
+
+{% block header %}
+    <div style="padding-top:60px">
+        <h1>What's run out?</h1>
+    </div>
+{% endblock header %}
+
+{% block content %}
+    <ul>
+        <div class="row">
+            <div class="container">
+            <p>
+                <h4>Groceries that have run out:</h4>
+            </p>
+            </div>
+            {% for x in food %}
+                {% if x.quantity <= 0 %}
+                    <div class="col-auto py-3">
+                    <div class="card" style="width: 20rem;">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <p>
+                                    <h4>{{ x }}</h4>
+                                    <small><a href="{% url 'my_fridge:add_quantity' x.id %}"> Modify </a></small>-
+                                    <small><a href="{% url 'my_fridge:remove_food' x.id %}"> Remove </a></small>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+                {% endif %}
+            {% empty %}
+                <li>No food has run out yet.</li>
+            {% endfor %}
+        </div>
+    </ul>
+{% endblock content %}

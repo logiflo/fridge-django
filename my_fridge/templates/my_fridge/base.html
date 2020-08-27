@@ -1,0 +1,69 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width", inital-scale=1>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+        <title>My Fridge</title>
+
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+
+    </head>
+
+    <body>
+
+        <!-- Static navbar -->
+        <nav class="navbar navbar-expand-md navbar navbar-dark bg-dark ">
+                <a class="navbar-brand active" href="{% url 'my_fridge:home' %}">My Fridge</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'my_fridge:food' %}">What's in?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'my_fridge:food_out' %}">What's run out?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'my_fridge:essencials' %}"> Essentials</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        {% if user.is_authenticated %}
+                            <li class="navbar-text">
+                                <a>Hello, {{user.username}}.</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'users:logout' %}">Log out</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'users:register' %}">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'users:login' %}">Log in</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+        </nav>
+
+        <div class="container">
+            <div class="page-header">
+                {% block header %}{% endblock header %}
+            </div>
+            <div class="page-header">
+                {% block content %}{% endblock content %}
+            </div><!-- /container -->
+        </div>
+    </body>
+</html>

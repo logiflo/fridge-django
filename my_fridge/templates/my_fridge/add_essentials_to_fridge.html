@@ -1,0 +1,37 @@
+{% extends "my_fridge/base.html" %}
+{% load bootstrap4 %}
+
+{% block header %}
+<div style="padding-top:60px">
+</div>
+{% endblock header %}
+
+{% block content %}
+    {% if is_error == 0 %}
+        <p> <h3> All your essentials have been added to the fridge. </h3></p>
+    {% else %}
+        <h3> Ups, it was a problem adding your essentials </h3>
+        <p> <h5> It was impossible to add the following groceries to your fridge due to they have differents units: </h5></p>
+        {% for obj, essen in list_error %}
+        <p>
+            <ul>
+                <li>
+                    <h6> {{ obj.text }} </h6>
+                    <ul>
+                        <li>
+                            Units in essentials: <strong> {{ essen.units }} </strong>.
+                            <a href="{% url 'my_fridge:add_quantity_essencials' essen.id %}"> Update </a>
+                        </li>
+                        <li>
+                            Units in fridge : <strong> {{ obj.units }}</strong>.
+                            <a href="{% url 'my_fridge:add_quantity' obj.id %}"> Update </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </p>
+        {% endfor %}
+    {% endif %}
+
+    <a href="{% url 'my_fridge:food' %}" class="btn btn-secondary"> Volver </a>
+{% endblock content %}

@@ -1,0 +1,56 @@
+{% extends "my_fridge/base.html" %}
+{% load bootstrap4 %}
+
+
+{% block header %}
+    <div style="padding-top:60px">
+        <h1>Essentials</h1>
+    </div>
+{% endblock header %}
+
+{% block content %}
+    <ul>
+        <div class="row">
+            {% if is_empty %}
+                <li> No essential food added yet.
+                <p>
+                    <small> <a href="{% url 'my_fridge:add_essencials' %}">Add Essential</a> </small>
+                </p>
+                </li>
+            {% else %}
+                <div class="container-fluid">
+                <p>
+                    <h4>Essential groceries that must be present in your fridge:</h4>
+                    <small> <a href="{% url 'my_fridge:add_essencials' %}">Add Essential</a> </small>
+                </p>
+                </div>
+
+                {% for x in essencial%}
+                        <div class="col-auto py-3">
+                        <div class="card" style="width: 20rem;">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <p>
+                                        <h3>{{ x }}</h3>
+                                    </p>
+                                    <p>
+                                        Quantity: {{ x.quantity }} {{ x.units }}
+                                    </p>
+                                    <p>
+                                        <small><a href="{% url 'my_fridge:add_quantity_essencials' x.id %}"> Modify </a></small> -
+                                        <small><a href="{% url 'my_fridge:remove_essencial' x.id %}"> Remove </a></small>
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                {% endfor %}
+                <div class="container-fluid">
+                <p>
+                <a href="{% url 'my_fridge:add_essencials_to_fridge' %}"  class="btn btn-primary"> Add all essentials to your fridge </a></small>
+                </p>
+                </div>
+            {% endif %}
+        </div>
+    </ul>
+{% endblock content %}

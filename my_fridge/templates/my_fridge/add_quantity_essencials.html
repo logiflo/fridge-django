@@ -1,0 +1,28 @@
+{% extends "my_fridge/base.html" %}
+{% load bootstrap4 %}
+
+{% block header %}
+<div style="padding-top:60px">
+    <h3>
+        {{ essencials }}
+    </h3>
+</div>
+{% endblock header %}
+
+
+{% block content %}
+    <p> <h5>Modify units and/or quantity: </h5> </p>
+
+    <form action="{% url 'my_fridge:add_quantity_essencials' essencials.id%}" method='post' class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+
+        {% buttons %}
+            <button name="submit" class="btn btn-primary"> Update </button>
+            <a href="{% url 'my_fridge:essencials'%}" class="btn btn-secondary"> Cancel </a>
+        {% endbuttons %}
+
+
+    </form>
+
+{% endblock content %}
