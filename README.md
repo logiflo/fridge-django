@@ -1,38 +1,32 @@
-Fridge Django
+Fridge App
 =======
 
 [![GitHub issue last update](https://img.shields.io/badge/updated-may%202021-red.svg?longCache=true&style=for-the-badge)](https://github.com/logiflo/fridge-django)
 
 # Index
 
-- [About](#about)
-- [What's New?](#whats-new)
+- [Fridge App](#fridge-app)
+- [Index](#index)
+- [Fridge App 1.0.1](#fridge-app-101)
+- [What's new in 1.0.1?](#whats-new-in-101)
 - [How to Build](#how-to-build)
 - [Requirements](#requirements)
 - [Dependencies](#dependencies)
-- [Demos](#demos)
-- [Future features](#future)
 - [Contributing](#contributing)
-- [Bugs?](#bugs)
-- [Honorable mentions?](#mentions)
+- [Bugs](#bugs)
 - [License](#license)
 
-<a name="about"></a>
-# Fridge Django 1.0.1
+# Fridge App 1.0.1
 
 Fridge app is an open source application using django, which allows you to keep track of the groceries you have in the fridge as well as the ones that have run out.
 
 This application is hosted in Heroku, it is available [here](https://fridge-django.herokuapp.com/).
 
 Version: 1.0.1 - Released: 29th May 2021
-
-<a name="whats-new"></a>
-## What's new in 1.0.1?
+# What's new in 1.0.1?
 
 * The issue removing essential groceries is fixed.
-
-<a name="how-to-build"></a>
-## How to Build
+# How to Build
 
 Once the repo is cloned, it is required to create a file named `.env` at `fridge`. That file must contain the **SECRET_KEY** and **DATABASE_URL**; an example can be shown below:
 
@@ -58,24 +52,14 @@ Finally, the following command starts a lightweight development Web server on th
 ```bash
 $ python manage.py runserver
 ```
-
-<a name="requirements"></a>
-## Requirements
+# Requirements
 
 - Python 3.6 or above.
-
-<a name="dependencies"></a>
-## Dependencies
+# Dependencies
 
 See `requirements.txt`.
 
-<a name="future"></a>
-## Future features
-
-Coming soon...
-
-<a name="contributing"></a>
-## Contributing
+# Contributing
 
 - If you find a bug then please report it on [GitHub Issues][issues].
 
@@ -83,14 +67,11 @@ Coming soon...
 
 - If you issue a Pull Request for fridge-django, please only do so against the `dev` branch and **not** against the `master` branch.
 
-<a name="bugs"></a>
-## Bugs
+# Bugs
 
 Please add them to the [Issue Tracker][issues] with as much info as possible, especially source code demonstrating the issue.
 
-<a name="license"></a>
-## License
------------------------------------------------------------------------
+# License
 
 <a href="http://opensource.org/licenses/BSD-2-Clause" target="_blank">
 <img align="right" width="100" height="137"
