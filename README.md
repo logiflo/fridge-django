@@ -84,14 +84,9 @@ Coming soon...
 - If you issue a Pull Request for fridge-django, please only do so against the `dev` branch and **not** against the `master` branch.
 
 <a name="bugs"></a>
-## Bugs?
+## Bugs
 
 Please add them to the [Issue Tracker][issues] with as much info as possible, especially source code demonstrating the issue.
-
-<a name="mentions"></a>
-## Honorable mentions
-
-Coming soon...
 
 <a name="license"></a>
 ## License
