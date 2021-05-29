@@ -22,6 +22,8 @@ Fridge Django
 
 Fridge app is an open source application using django, which allows you to keep track of the groceries you have in the fridge as well as the ones that have run out.
 
+This application is hosted in Heroku, it is available [here](https://fridge-django.herokuapp.com/).
+
 Version: 1.0.1 - Released: 29th May 2021
 
 <a name="whats-new"></a>
