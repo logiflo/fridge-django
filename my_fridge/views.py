@@ -219,7 +219,7 @@ def remove_food(request, food_id):
 @login_required
 def remove_essencial(request, essencials_id):
     essencial = Essencial.objects.get(id=essencials_id)
-    if essencials.owner != request.user:
+    if essencial.owner != request.user:
         raise Http404
 
     essencial.delete()
