@@ -1,7 +1,7 @@
 Fridge Django
 =======
 
-[![GitHub issue last update](https://img.shields.io/badge/updated-august%202020-red.svg?longCache=true&style=for-the-badge)](https://github.com/logiflo/fridge-django)
+[![GitHub issue last update](https://img.shields.io/badge/updated-may%202021-red.svg?longCache=true&style=for-the-badge)](https://github.com/logiflo/fridge-django)
 
 # Index
 
@@ -18,46 +18,54 @@ Fridge Django
 - [License](#license)
 
 <a name="about"></a>
-# Fridge Django 1.0.0
+# Fridge Django 1.0.1
 
-Fridge Django is an open source fridge app using django
+Fridge app is an open source application using django, which allows you to keep track of the groceries you have in the fridge as well as the ones that have run out.
 
-Version: 1.0.0 - Released: 27rd August 2020
+Version: 1.0.1 - Released: 29th May 2021
 
 <a name="whats-new"></a>
-## What's new in 1.0.0?
+## What's new in 1.0.1?
 
-* This App helps you to organize your meals.
-* You can know what is in your fridge and what is run out.
-* It is possible to upload your essential groceries and add them directly to your fridge.
+* The issue removing essential groceries is fixed.
 
 <a name="how-to-build"></a>
 ## How to Build
 
-Coming soon...
+Once the repo is cloned, it is required to create a file named `.env` at `fridge`. That file must contain the **SECRET_KEY** and **DATABASE_URL**; an example can be shown below:
+
+```
+SECRET_KEY=j6)1zc)bx230q^!9!@9wmfz6x!+d695iphyx%y-$tf5uf-f7b!
+DATABASE_URL=sqlite:///db.sqlite3
+```
+
+Install the needed packages according to the configuration file `requirements.txt`.
+
+```bash
+$ pip install -r requirements.txt
+```
+
+Then, create a migration to create the database tables for the models defined in the application, using the following command:
+
+```bash
+$ python manage.py migrate
+```
+
+Finally, the following command starts a lightweight development Web server on the local machine. By default, the server runs on port 8000 on the IP address 127.0.0.1. You can pass in an IP address and port number explicitly.
+
+```bash
+$ python manage.py runserver
+```
 
 <a name="requirements"></a>
 ## Requirements
 
-asgiref==3.2.10
-beautifulsoup4==4.9.1
-bootstrap4==0.1.0
-dj-database-url==0.5.0
-dj-static==0.0.6
-Django==3.1
-django-bootstrap4==2.2.0
-django-environ==0.4.5
-gunicorn==20.0.4
-pytz==2020.1
-soupsieve==2.0.1
-sqlparse==0.3.1
-static3==0.7.0
-psycopg2>=2.6.1
+- Python 3.6 or above.
 
 <a name="dependencies"></a>
 ## Dependencies
 
-Coming soon...
+See `requirements.txt`.
 
 <a name="future"></a>
 ## Future features
